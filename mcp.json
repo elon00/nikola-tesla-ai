@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "nikola-tesla-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "TESLA",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "simulate_polyphase_induction_field",
+          "description": "Computes rotating magnetic field flux density, torque efficiency and harmonic stator vector balance",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "frequency_hz": {
+                "type": "number"
+              },
+              "phase_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "frequency_hz"
+            ]
+          }
+        },
+        {
+          "name": "tune_resonant_tesla_cavity",
+          "description": "Solves LC tank circuit resonant oscillation, electrostatic standing waves and wireless potential gradients",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "inductance_henries": {
+                "type": "number"
+              },
+              "capacitance_farads": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "inductance_henries"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
